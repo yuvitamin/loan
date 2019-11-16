@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.loancalculate.mapper.AttestationMapper">
+    <resultMap id="Attestation_ResultMap" type="com.team.loancalculate.domain.entity.Attestation">
+        <id property="attestationId"  column="attestation_Id" />
+        <result property="attestationTitle" column="attestation_Title"/>
+        <result property="attestationLines" column="attestation_Lines"/>
+    </resultMap>
+    <select id="findAll" resultMap="Attestation_ResultMap">
+        select ta.attestation_id, attestation_title, attestation_lines
+        from t_attestation ta
+    </select>
+    <select id="findAttesLine" resultMap="Attestation_ResultMap">
+        select ta.attestation_lines
+        from t_attestation ta
+        where ta.attestation_id=#{keyword1};
+    </select>
+</mapper>

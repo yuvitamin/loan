@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.loancalculate.mapper.InstallmentMapper">
+
+    <resultMap id="Installment_ResultMap" type="com.team.loancalculate.domain.entity.Installment">
+        <id property="installmentId" column="installment_Id"/>
+        <result property="installmentPeriods" column="installment_Periods"/>
+        <result property="installmentRate" column="installment_Rate"/>
+    </resultMap>
+    <select id="findRate" resultMap="Installment_ResultMap">
+        SELECT ti.installment_rate,ti.installment_periods
+        FROM t_installment ti
+        where ti.installment_id=#{keyword1}
+    </select>
+</mapper>

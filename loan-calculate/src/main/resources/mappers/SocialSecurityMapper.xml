@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.loancalculate.mapper.SocialSecurityMapper">
+    <resultMap id="SocialSecurity_ResultMap" type="com.team.loancalculate.domain.entity.SocialSecurity">
+        <id property="socialSecurityId"  column="social_Security_Id" />
+        <result property="socialSecurityTitle" column="social_Security_Title"/>
+        <result property="socialSecurityLines" column="social_Security_Lines"/>
+    </resultMap>
+    <select id="findAll" resultMap="SocialSecurity_ResultMap">
+        select ts.social_security_id, social_security_title, social_security_lines
+        from t_social_security ts
+    </select>
+    <select id="findSocialLine" resultMap="SocialSecurity_ResultMap">
+        select ts.social_security_lines
+        from t_social_security ts
+        where ts.social_security_id=#{keyword5}
+    </select>
+</mapper>

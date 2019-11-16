@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.loancalculate.mapper.IncomeMapper">
+    <resultMap id="Income_ResultMap" type="com.team.loancalculate.domain.entity.Income">
+        <id property="incomeId"  column="income_Id" />
+        <result property="incomeTitle" column="income_Title"/>
+        <result property="incomeLines" column="income_Lines"/>
+    </resultMap>
+    <select id="findAll" resultMap="Income_ResultMap">
+        select ti.income_id, income_title, income_lines
+        from t_income ti
+    </select>
+    <select id="findIncomeLine" resultMap="Income_ResultMap">
+        select ti.income_lines
+        from t_income ti
+        where ti.income_id=#{keyword3}
+    </select>
+</mapper>

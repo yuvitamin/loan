@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.loancalculate.mapper.EducationMapper">
+    <resultMap id="Education_ResultMap" type="com.team.loancalculate.domain.entity.Education">
+        <id property="educationId"  column="education_Id" />
+        <result property="educationTitle" column="education_Title"/>
+        <result property="educationLines" column="education_Lines"/>
+    </resultMap>
+    <select id="findAll" resultMap="Education_ResultMap">
+        select te.education_id, education_title, education_lines
+        from t_education te
+    </select>
+    <select id="findEducatLine" resultMap="Education_ResultMap">
+        select te.education_lines
+        from t_education te
+        where te.education_id=#{keyword2}
+    </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.loancalculate.mapper.DailyMapper">
+
+    <resultMap id="Daily_ResultMap" type="com.team.loancalculate.domain.entity.Daily">
+        <id property="dailyId" column="daily_Id"/>
+        <result property="dailyRate" column="daily_Rate"/>
+        <result property="dailyDays" column="daily_days"/>
+    </resultMap>
+    <select id="findRate" resultMap="Daily_ResultMap">
+        SELECT td.daily_rate,td.daily_days
+        FROM t_daily td
+        where td.daily_id=#{keyword1}
+    </select>
+</mapper>
